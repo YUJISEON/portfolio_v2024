@@ -85,7 +85,7 @@ body {
     height: 100%;
     width: 100%;
     touch-action: none;
-    /* background-color: #000;  */
+    background-color: #000; 
     color: #fff;
     font-family: "PP Telegraf";
     letter-spacing: -0.07rem;
@@ -102,6 +102,12 @@ body {
     top: 0;
     left: 0;
     z-index: 10000
+}
+
+.inner {
+    height: 100%;
+    padding: 0 5rem;
+    position: relative;
 }
 
 /**********************/
@@ -177,22 +183,172 @@ body {
 
 
 /**********************/
-/****  Shape-outer  *****/
+/****    cursor   *****/
 /**********************/
 
-.shape-outer {
-    position: relative;
-    z-index: 10;
-    margin-top: -.5rem;
+#cursor {
+    width: 10px;
+    height: 10px;
+    background: white;
+    z-index: 9999;
+    border-radius: 50%;
     pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    mix-blend-mode: difference;
 }
 
-.shape {
-    height: 100vh;
+#cursor.link {
+    width: 30px;
+    height: 30px;
+}
+
+/**********************/
+/****    header   *****/
+/**********************/
+
+#header {
     width: 100%;
-    display: block;
-    transform-origin: 50% 0;
-    fill: #EC43DD;
-    fill: #000;
-    will-change: transform;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+#header .header-body {
+    width: 100%;
+    height: 9rem;
+}
+
+#header .header-body .logo {
+    height: 100%;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    margin-top: -35px;
+    font-size: 4rem;
+    letter-spacing: -0.15rem;
+}
+
+#header .header-body .gnb-items li { 
+    display: inline-block;
+    padding: 50px;    
+    font-size: 1.6rem;
+}
+
+#header a { 
+    color: #fff;
+}
+
+/**********************/
+/****    main    *****/
+/**********************/
+
+#main {
+    padding-top: 9rem;
+}
+
+.section-body {
+    height: 100%;
+}
+
+.main-visual {
+    width: 100%;
+    height: calc(100vh - 9rem);
+}
+
+.main-visual .tit-box {
+    font-size: 12rem;
+    letter-spacing: -1.7rem;
+    height: 9.6rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.main-visual .tit-box .txt-hidden,
+.main-visual .tit-box .txt-show {
+    position: absolute;
+    left: 0;
+}
+
+.main-visual .tit-box span {
+    display: inline-block;
+    font-kerning: initial;
+}
+
+.main-visual .tit-box.tit-together {
+    width: 65rem;
+}
+
+.main-visual .tit-box.tit-communicate {
+    width: 98rem;
+}
+
+.main-visual .tit-box.tit-grow {
+    width: 40rem;
+}
+
+
+.arrow-wrap {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    margin-top: 5.7rem;
+    /* margin-top: 5.7rem;
+    margin-left: 2rem */
+}
+
+.circle-box {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 50%;
+    left: 50%;
+    margin-top: -5rem;
+    margin-left: -5rem;
+
+}
+
+.circle-box svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+}
+
+.circle-box svg circle {
+    stroke: #fff;
+    cx: 50%;
+    cy: 50%;
+    r: 5rem;
+    stroke-width: 1px;
+    fill: none;
+}
+
+.circle-box path {
+    stroke-dasharray: 311.5;
+    stroke-dashoffset: 311.5
+}
+
+.circle-box.circle-inner {
+    position: absolute;
+    width: 10rem;
+    height: 10rem
+}
+
+.circle-box.circle-inner path {
+    stroke-dasharray: 311.5;
+    stroke-dashoffset: 311.5
+}
+
+.arrow-box {
+    position: absolute;
+    width: 2.9rem;
+    height: 3.6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
