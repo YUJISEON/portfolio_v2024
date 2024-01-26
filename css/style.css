@@ -1,0 +1,198 @@
+@font-face {
+    font-family: "PP Telegraf";
+    src: url(/fonts/pptelegraf-regular.woff) format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: "PP Telegraf";
+    src: url(/fonts/pptelegraf-ultralight.woff) format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: "PP Telegraf";
+    src: url(/fonts/pptelegraf-ultrabold.woff) format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+ol,ul {
+    list-style: none
+}
+
+blockquote,q {
+    quotes: none
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: "";
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.home_featured_btn_text,.home_hero_arrow,.home_hero_circle2,.home_hero_circle {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+*,*:before,*:after {
+    box-sizing: border-box
+}
+
+html {
+    font-size: .6944444444vw;
+    line-height: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    user-select: none
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    touch-action: none;
+    /* background-color: #000;  */
+    color: #fff;
+    font-family: "PP Telegraf";
+    letter-spacing: -0.07rem;
+    text-transform: uppercase;
+    /*cursor: none*/
+}
+
+.bg {
+    width: 100%;
+    height: 0;
+    background-color: #000; 
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000
+}
+
+/**********************/
+/****  Preloader  *****/
+/**********************/
+
+
+.preloader {
+    z-index: 5000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000
+}
+
+.preloader p {
+    position: fixed;
+    right: 5rem;
+    bottom: 5rem;
+    font-size: 8rem;
+    color: #000;
+    font-weight: 400;
+    overflow: hidden
+}
+
+.preloader p span {
+    display: inline-block
+}
+
+.preloader .preloader-bg {
+    width: 100%;
+    height: 100%;
+    background-color: #fff
+}
+
+.preloader .preloader-txt-wrap {
+    height: 10rem;
+    top: calc(50% - 5rem);
+    line-height: 10rem;
+    display: flex;
+    position: fixed;
+    color: #000;
+    font-size: 12rem;
+    letter-spacing: -0.5rem;
+    font-weight: 500;
+    overflow: hidden
+}
+
+.preloader .preloader-txt-wrap.le {
+    left: 26rem;
+}
+
+.preloader .preloader-txt-wrap.ri {
+    right: 39rem;
+    padding-left: 10rem;
+}
+
+.preloader .preloader-txt-wrap span {
+    display: block;
+    width: auto
+}
+
+.preloader .hidden-txt {
+    display: inline-block;
+    opacity: 0 !important
+}
+
+.preloader .txt-v2 {
+    transform: translateY(100%);
+}
+
+
+/**********************/
+/****  Shape-outer  *****/
+/**********************/
+
+.shape-outer {
+    position: relative;
+    z-index: 10;
+    margin-top: -.5rem;
+    pointer-events: none;
+}
+
+.shape {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    transform-origin: 50% 0;
+    fill: #EC43DD;
+    fill: #000;
+    will-change: transform;
+}
