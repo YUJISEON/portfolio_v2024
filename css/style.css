@@ -70,27 +70,36 @@ table {
 html {
     font-size: .6944444444vw;
     line-height: 1;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    -webkit-text-size-adjust: none;
-    -webkit-font-smoothing: antialiased;
-    user-select: none
+}
+
+html.load {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
 }
 
 body {
     height: 100%;
     width: 100%;
     touch-action: none;
-    background-color: #000; 
+    /* background-color: #000;  */
     color: #fff;
     font-family: "PP Telegraf";
     letter-spacing: -0.07rem;
     text-transform: uppercase;
-    /*cursor: none*/
+    /* cursor: none */
 }
 
 .bg {
@@ -241,62 +250,25 @@ body {
     color: #fff;
 }
 
+
 /**********************/
 /****    main    *****/
 /**********************/
-
-#main {
-    padding-top: 9rem;
-}
-
-.section-body {
-    height: 100%;
-}
-
-.main-visual {
-    width: 100%;
-    height: calc(100vh - 9rem);
-}
-
-.main-visual .tit-box {
-    font-size: 12rem;
-    letter-spacing: -1.7rem;
-    height: 9.6rem;
-    position: relative;
-    font-weight: 500;
-}
-
-.main-visual .tit-box .txt-hidden,
-.main-visual .tit-box .txt-show {
-    position: absolute;
-    left: 0;
-}
-
-.main-visual .tit-box span {
-    display: inline-block;
-    font-kerning: initial;
-}
-
-.main-visual .tit-box.tit-together {
-    width: 65rem;
-}
-
-.main-visual .tit-box.tit-communicate {
-    width: 98rem;
-}
-
-.main-visual .tit-box.tit-grow {
-    width: 40rem;
-}
-
 
 .arrow-wrap {
     position: relative;
     width: 15rem;
     height: 15rem;
-    margin-top: 5.7rem;
+    margin-top: 5rem;
     /* margin-top: 5.7rem;
     margin-left: 2rem */
+}
+
+.arrow-wrap.type2 {
+    position: absolute;
+    top: 50%;
+    right: 10vw;
+    margin-top: -7.5rem;
 }
 
 .circle-box {
@@ -330,25 +302,180 @@ body {
     stroke-dashoffset: 311.5
 }
 
-.circle-box.circle-inner {
-    position: absolute;
-    width: 10rem;
-    height: 10rem
-}
-
 .circle-box.circle-inner path {
     stroke-dasharray: 311.5;
     stroke-dashoffset: 311.5
 }
 
+.circle-box.circle-txt .txt-wrap {
+    height: 100%;
+}
+
+.circle-box.circle-txt p {
+    font-size: 1.2rem;
+    color: #fff;
+    /* transition: all 0.3s; */
+}
+
+.circle-box.circle-txt p:last-child{
+    margin-left: 1rem;
+}
+
+
+
 .arrow-box {
     position: absolute;
     width: 2.9rem;
-    height: 3.6rem;
+    height: 3.6rem;    
+    margin-top: -1.8rem;
+    margin-left: -1.45rem;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center
+}
+
+.arrow-wrap.type2 .arrow-box svg {
+    opacity: 0;
+}
+
+.arrow-wrap.type2 .arrow-box svg {
+    transform: rotate(-135deg)
+}
+
+.arrow-wrap.type2.off .circle-txt p {
+    opacity: 0;
+}
+
+.arrow-wrap.type2.off .arrow-box svg {
+    opacity: 1;
+}
+
+/**********************/
+/****    main    *****/
+/**********************/
+
+#main {
+    padding-top: 9rem;
+}
+
+.section-body {
+    height: 100%;
+}
+
+.main-visual {
+    width: 100%;
+    height: calc(100vh - 9rem);
+}
+
+.main-visual .tit-area {
+    padding-top: 5rem;
+}
+
+.main-visual .tit-box {
+    font-size: 12rem;
+    letter-spacing: -1.7rem;
+    height: 9.6rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.main-visual .tit-box .txt-hidden,
+.main-visual .tit-box .txt-show {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+
+.main-visual .tit-box span {
+    display: inline-block;
+    font-kerning: initial;
+}
+
+.main-visual .tit-box .txt-description p {
+    overflow: hidden;
+}
+
+.main-visual .tit-box .txt-show span,
+.main-visual .tit-box .txt-description span{
+    transform: translateY(101%);
+}
+
+.main-visual .tit-box.tit-together {
+    width: 65rem;
+}
+
+.main-visual .tit-box.tit-communicate {
+    width: 98rem;
+}
+
+.main-visual .tit-box.tit-grow {
+    width: 40rem;
+    margin-left: -10rem;
+}
+
+.main-visual .tit-box .txt-description {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.01rem;
+    position: absolute;
+    left: 41rem;
+    top: 2.5rem;
+    width: 22rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+
+/*******************************/
+/****     main - about     *****/
+/*******************************/
+
+.main-about {
+    width: 100%;
+}
+
+.main-about .inner {
+    padding: 5rem;
+}
+
+.main-about .img-box {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 80vh;
+    display: block;
+    overflow: hidden;
+    clip-path: inset(0% 30% 0% 30%);    
+}
+
+.main-about .img-box img {
+    width: 100%;
+    height: 100%!important;
+    position: relative;
+    display: block;
+    z-index: 0;
+    object-position: center;
+    object-fit: cover;
+}
+
+.main-about .about-description {
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    letter-spacing: -0.056rem;
+}
+
+
+/*******************************/
+/****     main - project     *****/
+/*******************************/
+
+.main-project {
+    width: 100%;
+    height: 100vh;
 }
