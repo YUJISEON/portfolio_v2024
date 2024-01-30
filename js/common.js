@@ -1,4 +1,11 @@
-gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+const smoother = ScrollSmoother.create({
+    smooth: 1, 
+    effects: true,
+    smoothTouch: 0.1, 
+});
 
 const preloader = document.querySelector('.preloader');
 const txtV1 = document.querySelectorAll('.txt-v1');
@@ -71,7 +78,7 @@ const txtDesc = document.querySelectorAll('.txt-description span');
 const visualTxt = gsap.timeline()
 .from(headerBody, {
     y: "-100%",
-    duration: 1,
+    duration: 1.3,
     ease: "Power3.easeOut",
 })
 .to(txtHidden, {
@@ -130,14 +137,19 @@ function cursorAni() {
 
 
 function arrowAniType1() {
+
     const arrowWrap = document.querySelector('.arrow-wrap.type1');
     const layer = gsap.utils.toArray(".arrow-wrap.type1 .layer");
+    const arrow = arrowWrap.querySelector(".arrow-box");
+
     layer.forEach(function(target){
-        let speed = target.getAttribute("data-speed") * 0.1;
+        let speed = target.getAttribute("data-arrow") * 0.1;
         let xTo2Move = gsap.quickTo(target, "x", { duration: speed, ease: "power3" }),
             yTo2Move = gsap.quickTo(target, "y", { duration: speed, ease: "power3" });
 
         arrowWrap.addEventListener('mousemove', ({ pageX: x, pageY: y }) => {
+            console.log("mousemove");
+
             const xOffset = x - arrowWrap.getBoundingClientRect().left - window.pageXOffset;
             const yOffset = y - arrowWrap.getBoundingClientRect().top - window.pageYOffset;
 
@@ -155,9 +167,18 @@ function arrowAniType1() {
                 duration: 0.5,
                 ease : "Power3.easeIn"
             })
-        });
-
+        });     
     });
+
+    arrow.addEventListener("click", ()=>{
+        gsap.to(smoother, {
+            scrollTop: Math.min(
+                ScrollTrigger.maxScroll(window),
+                smoother.offset("#mainAbot", "top top")
+            ),
+            duration: 1,
+        });
+    })
 }
 
 function arrowAniType2() {    
@@ -166,7 +187,7 @@ function arrowAniType2() {
     let isOff = false;
 
     layer.forEach(function(target){
-        let speed = target.getAttribute("data-speed") * 0.1;
+        let speed = target.getAttribute("data-arrow") * 0.1;
         let xTo2Move = gsap.quickTo(target, "x", { duration: speed, ease: "power3" }),
             yTo2Move = gsap.quickTo(target, "y", { duration: speed, ease: "power3" });
 
@@ -196,9 +217,7 @@ function arrowAniType2() {
                     arrowWrap.classList.remove('off');
                     isOff = false;
                 }                
-            })
-
-            
+            })            
         });
 
     });
@@ -210,6 +229,7 @@ function aboutAni() {
     const aboutImg = gsap.timeline()
     .to(imgBox,{
         clipPath: "inset(0% 0%)",
+        scale: 1,
         borderRadius: '50px',
         duration: .5,
 		ease: 'Linear.easeNone'
@@ -218,11 +238,11 @@ function aboutAni() {
     ScrollTrigger.create({
         trigger: '.main-about .section-body',
         start: 'top 10%',
-        end: `+=2000`,
+        end: `+=50%`,
         animation: aboutImg,
         pin: true,
         scrub: 0.1,
-        //markers: true
+        //markers: true,
     })
 }
 
@@ -231,8 +251,9 @@ function aboutAni() {
 master
 .add(preloaderTxt)
 .add(visualTxt, "-=1")
-.add(aboutAni)
 
 cursorAni();
 arrowAniType1();
 arrowAniType2();
+
+aboutAni();
