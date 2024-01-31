@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/style.css">        
 </head>
 <body>
+    <div class="no-scroll"></div>
     <header id="header">
         <div class="header-body">
             <div class="inner flex-box align-items-center justify-content-center">
@@ -32,7 +33,7 @@
                 <section class="main-visual">
                     <div class="section-body">
                         <div class="inner flex-box align-items-center justify-content-center">
-                            <div class="tit-area">
+                            <div class="con-area">
                                 <div class="tit-wrap flex-box flex-column justify-content-center align-items-center">
                                     <div class="tit-box tit-together">
                                         <div class="together-txt1 txt-hidden">                                    
@@ -128,50 +129,49 @@
                                     <div class="img-box flex-box align-items-center justify-content-center">
                                         <img src="/img/me.jpg" alt="">
                                     </div>
-                                    <div class="about-description">
-                                        <p>
-                                            안녕하세요. <br>
-                                            함께 소통하고 성장하는 유지선입니다. <br>
-                                            마크업부터 스크립트까지 가독성 좋은 코드를 짜며, <br>
-                                            다양한 사용자들이 만족하는 <br>
-                                            사이트/솔루션 개발을 목표로 합니다.
-                                        </p>
-                                    </div>
-                                    <div class="arrow-wrap type2">
-                                        <a href="#">
-                                            <div class="circle-box layer" data-arrow="4">
-                                                <svg><circle></circle></svg>
-                                            </div>
-                                            <div class="circle-box circle-inner layer" data-arrow="3">
-                                                <svg><circle></circle></svg>
-                                            </div>
-                                            <div class="circle-box circle-txt layer" data-arrow="3">
-                                                <div class="txt-wrap flex-box align-items-center justify-content-center">
-                                                    <div class="txt-inner">
-                                                        <p>learn</p><p>more</p>
-                                                    </div>
+                                    <div class="tit-wrap">
+                                        <div class="about-description section-description">
+                                            <p>
+                                                안녕하세요. <br>
+                                                함께 소통하고 성장하는 유지선입니다. <br>
+                                                마크업부터 스크립트까지 가독성 좋은 코드를 짜며, <br>
+                                                다양한 사용자들이 만족하는 <br>
+                                                사이트/솔루션 개발을 목표로 합니다.
+                                            </p>
+                                        </div>
+                                        <div class="arrow-wrap type2">
+                                            <a href="#">
+                                                <div class="circle-box layer" data-arrow="4">
+                                                    <svg><circle></circle></svg>
                                                 </div>
-                                                
-                                            </div>
-                                            <div class="arrow-box arrow-inner layer" data-arrow="5">
-                                                <svg width="100%" height="100%" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.2338 12.28L14.7538 20.8V0.239998H11.3538V20.76L2.87375 12.28L0.59375 14.56L13.0738 27L25.5138 14.56L23.2338 12.28Z" fill="white"></path></svg>
-                                            </div>
-                                        </a>
+                                                <div class="circle-box circle-inner layer" data-arrow="3">
+                                                    <svg><circle></circle></svg>
+                                                </div>
+                                                <div class="circle-box circle-txt layer" data-arrow="3">
+                                                    <div class="txt-wrap flex-box align-items-center justify-content-center">
+                                                        <div class="txt-inner">
+                                                            <p>learn</p><p>more</p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="arrow-box arrow-inner layer" data-arrow="5">
+                                                    <svg width="100%" height="100%" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.2338 12.28L14.7538 20.8V0.239998H11.3538V20.76L2.87375 12.28L0.59375 14.56L13.0738 27L25.5138 14.56L23.2338 12.28Z" fill="white"></path></svg>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="main-project">
+                <section id="mainProject" class="main-project">
                     <div class="section-body">
                         <div class="inner flex-box align-items-center justify-content-center">
                             <div class="con-area">
-                                <div class="con-wrap flex-box align-items-center justify-content-center">
-                                    <div class="list-box">
-                                        main-project
-                                    </div>
-                                    <div class="arrow-wrap type3">
+                                <div class="tit-wrap flex-box justify-content-between align-items-center">
+                                    <div class="arrow-wrap type2">
                                         <a href="">
                                             <div class="circle-box layer" data-arrow="4">
                                                 <svg><circle></circle></svg>
@@ -182,7 +182,7 @@
                                             <div class="circle-box circle-txt layer" data-arrow="3">
                                                 <div class="txt-wrap flex-box align-items-center justify-content-center">
                                                     <div class="txt-inner">
-                                                        <p>learn</p><p>more</p>
+                                                        <p>View All</p><p>Projects</p>
                                                     </div>
                                                 </div>
                                                 
@@ -192,7 +192,67 @@
                                             </div>
                                         </a>
                                     </div>
+                                    <div class="project-description section-description">
+                                        <p>
+                                            다음은 이를 보여주는 최근에 작업했던 프로젝트들입니다. <br>
+                                            스크립트 및 라이브러리(달력, 차트)가 활용된 솔루션 프로젝트, <br>
+                                            반응형으로 제작된 일반 홈페이지 프로젝트 등 많은 작업물들을 확인 가능합니다. 
+                                        </p>
+                                    </div>
                                 </div>
+                                <div class="project-wrap flex-box justify-content-between justify-content-center">
+                                    <div class="project-box project-box1">
+                                        <a href="" class="a-link">
+                                            <div class="img-wrap">
+                                                <div class="img">
+
+                                                </div>
+                                                <div class="img-desc">                                                    
+                                                    <p>설비예약 프로그램</p>
+                                                    <p>퍼블리싱 100%</p>
+                                                    <p>2023-11</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>                                                                     
+                                    <div class="project-box project-box2">
+                                        <a href="" class="a-link">
+                                            <div class="img-wrap">
+                                                <div class="img">
+
+                                                </div>
+                                                <div class="img-desc">                                                    
+                                                    <p>번역 프로젝트 관리 프로그램</p>
+                                                    <p>퍼블리싱 100%</p>
+                                                    <p>2023-09</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="project-box project-box3">
+                                        <a href="" class="a-link">
+                                            <div class="img-wrap">
+                                                <div class="img">
+
+                                                </div>
+                                                <div class="img-desc">                                                    
+                                                    <p>마케팅 대행사 홈페이지</p>
+                                                    <p>반응형 퍼블리싱 100%</p>
+                                                    <p>2023-07</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="mainConnect" class="main-connect">
+                    <div class="section-body">
+                        <div class="inner flex-box align-items-center justify-content-center">
+                            <div class="con-area">
+                                main-connect
                             </div>
                         </div>
                     </div>

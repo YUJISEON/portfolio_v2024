@@ -74,6 +74,7 @@ const headerBody = document.querySelector('.header-body');
 const txtHidden = document.querySelectorAll('.txt-hidden span');
 const txtShow = document.querySelectorAll('.txt-show span');
 const txtDesc = document.querySelectorAll('.txt-description span');
+const circleBox1 = document.querySelectorAll('.arrow-wrap.type1 .circle-box circle');
 
 const visualTxt = gsap.timeline()
 .from(headerBody, {
@@ -101,7 +102,14 @@ const visualTxt = gsap.timeline()
     duration: 1,
     ease: "Expo.easeOut"
 }, "-=0.5")
+.to(circleBox1, {
+    strokeDashoffset : 0,
+    ease: "Power3.easeOut",
+}, '<')
 
+visualTxt.eventCallback('onComplete',()=>{
+    gsap.set('.no-scroll', {display:'none'})
+})
 
 function cursorAni() {
     const cursor = document.querySelector('#cursor');
@@ -137,7 +145,6 @@ function cursorAni() {
 
 
 function arrowAniType1() {
-
     const arrowWrap = document.querySelector('.arrow-wrap.type1');
     const layer = gsap.utils.toArray(".arrow-wrap.type1 .layer");
     const arrow = arrowWrap.querySelector(".arrow-box");
@@ -148,8 +155,6 @@ function arrowAniType1() {
             yTo2Move = gsap.quickTo(target, "y", { duration: speed, ease: "power3" });
 
         arrowWrap.addEventListener('mousemove', ({ pageX: x, pageY: y }) => {
-            console.log("mousemove");
-
             const xOffset = x - arrowWrap.getBoundingClientRect().left - window.pageXOffset;
             const yOffset = y - arrowWrap.getBoundingClientRect().top - window.pageYOffset;
 
@@ -171,19 +176,55 @@ function arrowAniType1() {
     });
 
     arrow.addEventListener("click", ()=>{
-        gsap.to(smoother, {
-            scrollTop: Math.min(
-                ScrollTrigger.maxScroll(window),
-                smoother.offset("#mainAbot", "top top")
-            ),
-            duration: 1,
-        });
+        smoother.scrollTo("#mainAbot", true, "bottom bottom")
     })
 }
 
 function arrowAniType2() {    
-    const arrowWrap = document.querySelector('.arrow-wrap.type2');
-    const layer = gsap.utils.toArray(".arrow-wrap.type2 .layer");
+    const arrowWrap = document.querySelector('.main-about .arrow-wrap.type2');
+    const layer = gsap.utils.toArray(".main-about .arrow-wrap.type2 .layer");
+    let isOff = false;
+
+    layer.forEach(function(target){
+        let speed = target.getAttribute("data-arrow") * 0.1;
+        let xTo2Move = gsap.quickTo(target, "x", { duration: speed, ease: "power3" }),
+            yTo2Move = gsap.quickTo(target, "y", { duration: speed, ease: "power3" });
+
+        arrowWrap.addEventListener('mousemove', ({ pageX: x, pageY: y }) => {
+            const xOffset = x - arrowWrap.getBoundingClientRect().left - window.pageXOffset;
+            const yOffset = y - arrowWrap.getBoundingClientRect().top - window.pageYOffset;
+
+            const xRatio = (xOffset - (arrowWrap.offsetWidth * 0.5)) / (speed * 5);
+            const yRatio = (yOffset - (arrowWrap.offsetHeight * 0.5)) / (speed * 5);
+
+            xTo2Move(xRatio);
+            yTo2Move(yRatio);
+
+            if( !isOff ) {
+                arrowWrap.classList.add('off');
+                isOff = true;
+            }
+        });
+
+        arrowWrap.addEventListener('mouseleave', () => {
+            gsap.to(target, {
+                x : 0,
+                y : 0,
+                duration: 0.5,
+                ease : "Power3.easeIn",
+                onComplete: ()=>{     
+                    arrowWrap.classList.remove('off');
+                    isOff = false;
+                }                
+            })            
+        });
+
+    });
+}
+
+function arrowAniType3() {    
+    const arrowWrap = document.querySelector('.main-project .arrow-wrap.type2');
+    const layer = gsap.utils.toArray(".main-project .arrow-wrap.type2 .layer");
     let isOff = false;
 
     layer.forEach(function(target){
@@ -225,9 +266,10 @@ function arrowAniType2() {
 
 function aboutAni() {
     const imgBox = document.querySelector('.img-box');
+    const descBox = document.querySelector('.about-description p');
+    const circleBox2 = document.querySelectorAll('.main-about .circle-box circle');
 
-    const aboutImg = gsap.timeline()
-    .to(imgBox,{
+    const aboutImg = gsap.to(imgBox,{
         clipPath: "inset(0% 0%)",
         scale: 1,
         borderRadius: '50px',
@@ -241,12 +283,58 @@ function aboutAni() {
         end: `+=50%`,
         animation: aboutImg,
         pin: true,
-        scrub: 0.1,
+        scrub: 0.5,
+        // markers: true,
+    })
+
+    const aboutDesc = gsap.timeline()
+    aboutDesc.to(descBox, {
+        y : 0,
+        autoAlpha : 1,
+		ease : "Power3.easeIn"
+    })
+    .to(circleBox2, {
+        strokeDashoffset : 0,
+        ease: "Power3.easeOut",
+    }, '<')
+
+    ScrollTrigger.create({
+        trigger: '.main-about .section-body',
+        start: 'top 30%',
+        end: `+=30%`,
+        animation: aboutDesc,
+        scrub: 0.5,
         //markers: true,
     })
+
 }
 
 
+function projectAni() {
+    const descBox = document.querySelector('.project-description p');
+    const circleBox3 = document.querySelectorAll('.main-project .circle-box circle');
+
+    const projectDesc = gsap.timeline()
+    projectDesc.to(descBox, {
+        y : 0,
+        autoAlpha : 1,
+		ease : "Power3.easeIn"
+    })
+    .to(circleBox3, {
+        strokeDashoffset : 0,
+        ease: "Power3.easeOut",
+    }, '<')
+
+    ScrollTrigger.create({
+        trigger: '.main-project .section-body',
+        start: 'top 70%',
+        end: `+=30%`,
+        animation: projectDesc,
+        scrub: 0.5,
+        //markers: true,
+    })
+
+}
 
 master
 .add(preloaderTxt)
@@ -255,5 +343,7 @@ master
 cursorAni();
 arrowAniType1();
 arrowAniType2();
+arrowAniType3();
 
 aboutAni();
+projectAni();
