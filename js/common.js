@@ -264,6 +264,49 @@ function arrowAniType3() {
     });
 }
 
+
+function arrowAniType4() {    
+    const arrowWrap = document.querySelector('.main-connect .arrow-wrap.type2');
+    const layer = gsap.utils.toArray(".main-connect .arrow-wrap.type2 .layer");
+    let isOff = false;
+
+    layer.forEach(function(target){
+        let speed = target.getAttribute("data-arrow") * 0.1;
+        let xTo2Move = gsap.quickTo(target, "x", { duration: speed, ease: "power3" }),
+            yTo2Move = gsap.quickTo(target, "y", { duration: speed, ease: "power3" });
+
+        arrowWrap.addEventListener('mousemove', ({ pageX: x, pageY: y }) => {
+            const xOffset = x - arrowWrap.getBoundingClientRect().left - window.pageXOffset;
+            const yOffset = y - arrowWrap.getBoundingClientRect().top - window.pageYOffset;
+
+            const xRatio = (xOffset - (arrowWrap.offsetWidth * 0.5)) / (speed * 5);
+            const yRatio = (yOffset - (arrowWrap.offsetHeight * 0.5)) / (speed * 5);
+
+            xTo2Move(xRatio);
+            yTo2Move(yRatio);
+
+            if( !isOff ) {
+                arrowWrap.classList.add('off');
+                isOff = true;
+            }
+        });
+
+        arrowWrap.addEventListener('mouseleave', () => {
+            gsap.to(target, {
+                x : 0,
+                y : 0,
+                duration: 0.5,
+                ease : "Power3.easeIn",
+                onComplete: ()=>{     
+                    arrowWrap.classList.remove('off');
+                    isOff = false;
+                }                
+            })            
+        });
+
+    });
+}
+
 function aboutAni() {
     const imgBox = document.querySelector('.img-box');
     const descBox = document.querySelector('.about-description p');
@@ -336,6 +379,27 @@ function projectAni() {
 
 }
 
+function connectAni() {
+    const circleBox4 = document.querySelectorAll('.main-connect .circle-box circle');
+
+    const connectBox = gsap.timeline()
+    connectBox
+    .to(circleBox4, {
+        strokeDashoffset : 0,
+        ease: "Power3.easeOut",
+    }, '<')
+
+    ScrollTrigger.create({
+        trigger: '.main-connect .section-body',
+        start: '30% 70%',
+        end: `+=30%`,
+        animation: connectBox,
+        scrub: 0.5,
+        markers: true,
+    })
+
+}
+
 master
 .add(preloaderTxt)
 .add(visualTxt, "-=1")
@@ -344,6 +408,8 @@ cursorAni();
 arrowAniType1();
 arrowAniType2();
 arrowAniType3();
+arrowAniType4();
 
 aboutAni();
 projectAni();
+connectAni();

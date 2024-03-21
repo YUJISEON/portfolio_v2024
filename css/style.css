@@ -495,7 +495,7 @@ body {
     letter-spacing: -0.056rem;
 }
 
-.section-description p {
+.section-description p:not(.section-description.none p) {
     transform: translate(0, 50%);
     visibility: hidden;
     opacity: 0;
@@ -551,6 +551,28 @@ body {
     overflow: hidden;
 }
 
+
+.project-wrap .project-box .img::after {
+    content: '';
+    display: block;
+    clear: both;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition:all .4s ease; 
+    -webkit-transition:all .4s ease; 
+    -ms-transition:all .4s ease;
+    -moz-transition:all .4s ease;
+    -o-transition:all .4s ease; 
+}
+
+.project-wrap .project-box:hover .img::after {
+    opacity: 0;
+}
+
 .project-wrap .project-box.project-box1 .img {
     background: url(/img/main_project1.jpg);
     background-position: center;
@@ -586,4 +608,34 @@ body {
 .project-wrap .project-box:hover .img-desc {
     visibility: visible;
     opacity: 1;
+}
+
+
+/*******************************/
+/****     main - connect     *****/
+/*******************************/
+
+.main-connect {
+    width: 100%;
+    height: 100vh;
+}
+
+.main-connect .con-area {
+    width: 100%;
+}
+
+.connect-wrap {
+    width: 100%;
+    height: 75vh;
+    position: relative;
+}
+
+.connect-wrap .ani-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
 }
