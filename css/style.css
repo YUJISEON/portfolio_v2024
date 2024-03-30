@@ -113,6 +113,35 @@ body {
     z-index: 10000
 }
 
+.line {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.line::after {
+    content: '';
+    display: block;
+    clear: both;
+    width: calc(100% - 10rem);
+    height: 75vh;
+    position: absolute;
+    top: 12.5vh;
+    left: 5rem;
+    border-radius: 3rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transform: scale(2);
+    transition: all .8s;
+}
+
+.line.on::after {
+    transform: scale(1);
+}
+
 .inner {
     height: 100%;
     padding: 0 5rem;
@@ -628,14 +657,19 @@ body {
     width: 100%;
     height: 75vh;
     position: relative;
+    text-align: center;
 }
 
-.connect-wrap .ani-box {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 3rem;
-    border: 3px solid rgba(255, 255, 255, 0.3);
+.connect-wrap .connect-description p {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.072rem;
+}
+
+.connect-wrap .connect-description h2 {
+    font-size: 9rem;
+    line-height: 7.2rem;
+    letter-spacing: -0.36rem;
+    margin-top: 2.5rem;
+    font-weight: 400;
 }

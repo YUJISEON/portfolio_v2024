@@ -1,11 +1,51 @@
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Observer);
 
 const smoother = ScrollSmoother.create({
     smooth: 1, 
     effects: true,
     smoothTouch: 0.1, 
 });
+
+function wheelUp() {
+    gsap.to(".header-body", {
+        y: "0",
+        duration: 1,
+        ease: "Power3.easeOut"
+    })
+}
+
+function wheelDown() {
+    gsap.to(".header-body", {
+        y: "-100%",
+        duration: 1,
+        ease: "Power3.easeOut"
+    })
+}
+
+Observer.create({
+    target: window, 
+    type: "wheel, scroll", 
+    onUp: () => wheelUp(),
+    onDown: () => wheelDown(),
+});
+
+
+const img = gsap.utils.toArray('img');
+const loader = document.querySelector('.loader-text');
+
+const updateProgress = (instance)=>{
+    console.log(instance);
+    loader.textContent = `${Math.round(instance.progressedCount * 100 / img.length)}%`
+}
+
+// 이미지 배열을 넣어줌
+imagesLoaded(img)
+.on('progress',updateProgress)
+// always - 모든 이미지가 로드되거나 손상된 것으로 확인된 후에 트리거
+// done - 손상된 이미지 없이 모든 이미지가 성공적으로 로드된 후에 트리거
+//.on('always',init)
+
 
 const preloader = document.querySelector('.preloader');
 const txtV1 = document.querySelectorAll('.txt-v1');
@@ -395,7 +435,15 @@ function connectAni() {
         end: `+=30%`,
         animation: connectBox,
         scrub: 0.5,
-        markers: true,
+        //markers: true,
+    })
+
+    ScrollTrigger.create({
+        trigger: '.main-connect .section-body',
+        start: 'top top',
+        toggleClass : {targets: ".line", className: "on"},
+        scrub: 1,
+        //markers: true,
     })
 
 }
