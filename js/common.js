@@ -31,20 +31,15 @@ Observer.create({
 });
 
 
-const img = gsap.utils.toArray('img');
-const loader = document.querySelector('.loader-text');
+// const img = gsap.utils.toArray('img');
+// const loader = document.querySelector('.loader-text');
 
-const updateProgress = (instance)=>{
-    console.log(instance);
-    loader.textContent = `${Math.round(instance.progressedCount * 100 / img.length)}%`
-}
+// const updateProgress = (instance)=>{
+//     loader.textContent = `${Math.round(instance.progressedCount * 100 / img.length)}%`
+// }
 
-// 이미지 배열을 넣어줌
-imagesLoaded(img)
-.on('progress',updateProgress)
-// always - 모든 이미지가 로드되거나 손상된 것으로 확인된 후에 트리거
-// done - 손상된 이미지 없이 모든 이미지가 성공적으로 로드된 후에 트리거
-//.on('always',init)
+// imagesLoaded(img)
+// .on('progress',updateProgress)
 
 
 const preloader = document.querySelector('.preloader');
@@ -108,6 +103,7 @@ const preloaderTxt = gsap.timeline()
     opacity: 0,
     duration: 0    
 }, '+=.5')
+
 
 
 const headerBody = document.querySelector('.header-body');
@@ -394,28 +390,101 @@ function aboutAni() {
 
 
 function projectAni() {
-    const descBox = document.querySelector('.project-description p');
-    const circleBox3 = document.querySelectorAll('.main-project .circle-box circle');
 
-    const projectDesc = gsap.timeline()
-    projectDesc.to(descBox, {
-        y : 0,
-        autoAlpha : 1,
-		ease : "Power3.easeIn"
-    })
-    .to(circleBox3, {
-        strokeDashoffset : 0,
-        ease: "Power3.easeOut",
-    }, '<')
+    // const descBox = document.querySelector('.project-description p');
+    // const circleBox3 = document.querySelectorAll('.main-project .circle-box circle');
 
-    ScrollTrigger.create({
-        trigger: '.main-project .section-body',
-        start: 'top 70%',
-        end: `+=30%`,
-        animation: projectDesc,
-        scrub: 0.5,
+    // const projectDesc = gsap.timeline()
+    // projectDesc.to(descBox, {
+    //     y : 0,
+    //     autoAlpha : 1,
+	// 	ease : "Power3.easeIn"
+    // })
+    // .to(circleBox3, {
+    //     strokeDashoffset : 0,
+    //     ease: "Power3.easeOut",
+    // }, '<')
+
+    // ScrollTrigger.create({
+    //     trigger: '.main-project .section-body',
+    //     start: 'top 70%',
+    //     end: `+=30%`,
+    //     animation: projectDesc,
+    //     scrub: 0.5,
+    //     //markers: true,
+    // })
+
+    const projectWrap = document.querySelector(".project-wrap");
+    const listRotatorPin = projectWrap.querySelector(".list-wrap");
+    const listRotator = projectWrap.querySelector(".list-box");			
+    const listItems = projectWrap.querySelectorAll('li');
+    const totalItems = listItems.length - 1;
+    const angleIncrement = 180 / totalItems;
+
+    listItems.forEach(function(item, index) {
+        const rotationAngle = index * angleIncrement;
+        const fontSize = gsap.getProperty(item, "fontSize");
+        const lineHeight = gsap.getProperty(item, "lineHeight");
+        const translateZ = (parseFloat(fontSize) + parseFloat(lineHeight)) * 1.8;
+        
+        gsap.set(item, {
+            rotationX: -rotationAngle,
+            transformOrigin: `center center 0`,
+            transform: `rotateX(${-rotationAngle}deg) translateZ(${translateZ}px)`,
+            zIndex: totalItems - index, 
+        });
+    });					 
+    
+    gsap.to(listRotatorPin, {
+        scrollTrigger: {
+            trigger: listRotatorPin,
+            start: function() {
+                const startPin = 0;
+                return "top +=" + startPin;
+            },
+            end: function() {
+                const endPin = window.innerHeight * 6;
+                return "+=" + endPin;
+            },
+            pin:true,
+            scrub: true,
+            pinSpacing: false,
+            //markers: true,
+        }
+    });
+    
+    gsap.to(listRotator, {
+        scrollTrigger: {
+            trigger: projectWrap,
+            start: function() {
+                const startPin = (window.innerHeight) * 0.8;
+                return "top +=" + startPin;
+            },
+            end: function() {
+                const endPin = window.innerHeight * 5.5;
+                return "+=" + endPin;
+            },
+            scrub: true,
+        },
+        rotationX:285
+    });
+
+
+    var clipPath = gsap.to('.light-body', {
+        clipPath: 'inset(0% 0%)',
+        duration: 1,
+        ease: 'Linear.easeNone'
+    });
+    
+    var clipPathScene = ScrollTrigger.create({
+        trigger: '.main-project .con-area',
+        start: 'top 100%',
+        end: `+=${window.innerHeight / 3}`,
+        animation: clipPath,
+        scrub: 1,
         //markers: true,
-    })
+    });
+    
 
 }
 

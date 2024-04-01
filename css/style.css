@@ -102,6 +102,10 @@ body {
     /* cursor: none */
 }
 
+body.sub {
+    background-color: #000;
+}
+
 .bg {
     width: 100%;
     height: 0;
@@ -135,7 +139,7 @@ body {
     border-radius: 3rem;
     border: 3px solid rgba(255, 255, 255, 0.3);
     transform: scale(2);
-    transition: all .8s;
+    transition: all .5s;
 }
 
 .line.on::after {
@@ -157,6 +161,10 @@ body {
     top: 0;
     z-index: 9999;
     /*display: none;*/
+}
+
+.light-body {
+    color: #000;
 }
 
 /**********************/
@@ -537,11 +545,89 @@ body {
 
 .main-project {
     width: 100%;
-    height: 100vh;
+    height: 200vh;
 }
 
-.main-project .con-area {
+.main-project .section-body {
+    background-color: #fff;
+    clip-path: inset(6% 18% 0% 18%);
+}
+
+.main-project .inner {
+    padding: 20vh 5rem;
+    text-align: center;
+}
+
+.main-project .con-area, 
+.main-project .con-area > *  {
     width: 100%;
+    height: 100%;
+}
+
+.light-box {
+    position: absolute;
+    top:-100vh;
+    left: 0;
+    width: 100%;
+    height: 400vh;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.list-wrap {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-perspective: 10000px;
+    perspective: 10000px;
+    height: 100vh;
+    -webkit-mask-image: -webkit-linear-gradient(transparent 25%, black 40%, black 60%, transparent 75%);
+    mask-image: linear-gradient(transparent 25%, black 40%, black 60%, transparent 75%);
+}
+
+.main-project .list-box {    
+    position: relative;
+    display: -webkit-box; 
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.main-project .list-box li {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: calc(1rem + 2vh);
+    line-height: calc(1rem + 3.5vw);
+    font-family: 'mona-sansextrabold_wide';
+    font-weight: 300;
+    top: 50%;
+    margin: 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.main-project .list-box li strong {
+    font-weight: 800;
 }
 
 .main-project .project-description {
@@ -549,6 +635,7 @@ body {
     line-height: 2.0rem;
     letter-spacing: -0.056rem;
 }
+
 
 .project-wrap .project-box {
     width: 28vw;
@@ -673,3 +760,26 @@ body {
     margin-top: 2.5rem;
     font-weight: 400;
 }
+
+
+/**********************/
+/****    sub    *****/
+/**********************/
+
+body.sub main {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body.sub main > section, 
+body.sub main > section > .section-body, 
+body.sub main > section > .section-body .inner,
+body.sub main > section > .section-body .inner .con-area {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*******************************/
+/****     main - about     *****/
+/*******************************/

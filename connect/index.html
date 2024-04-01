@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>류지선 포트폴리오</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">     
+</head>
+<body class="sub connect">
+    <header id="header">
+        <div class="header-body">
+            <div class="inner flex-box align-items-center justify-content-center">
+                <h1 class="logo">
+                    <a href="/" class="a-link">JISEON R.</a>
+                </h1>
+                <nav class="gnb">
+                    <ul class="gnb-items">
+                        <li><a href="/about/index.html" class="a-link">ABOUT</a></li>
+                        <li><a href="/project/index.html" class="a-link">PROJECT</a></li>
+                        <li><a href="" class="a-link">CONNECT</a></li>
+                    </ul>
+                </nav>
+            </div>    
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="section-body">
+                <div class="inner">
+                    <div class="con-area">
+                        <div class="tit-wrap">
+                            <h2></h2>
+                        </div>
+                        <div class="con-wrap mt-100">
+                            <form style="width: 100%" id="contact-form">
+                                <div id="tagArea" style="padding: 0 4px"></div>
+                                <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputName" name="name" aria-describedby="emailHelp" placeholder="Your name" />
+                                <label for="inputName" class="form-label">Your name</label>
+                            </div>
+                            <div class="form-floating mb-3" style="margin-left: auto; margin-right: auto">
+                                <input type="email" class="form-control" id="inputEmail" name="email" aria-describedby="emailHelp" placeholder="Your phone number" />
+                                <label for="inputPhone" class="form-label">Your email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="inputPhone" name="phone" aria-describedby="emailHelp" placeholder="Your email address" />
+                                <label for="inputEmail" class="form-label">Your phone number</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" style="height: 13rem; resize: none" name="message" id="floatingTextarea" placeholder="Comments"></textarea>
+                                <label for="floatingTextarea">Comments</label>
+                            </div>
+                            <div class="nav justify-content-end px-2">
+                                <button name="submit" class="btn btn-outline-success">전송</button>
+                            </div>
+                            </form>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>    
+</body>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+                publicKey: "service_berj6c8",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        // window.onload = function() {
+        //     document.getElementById('contact-form').addEventListener('submit', function(event) {
+        //         event.preventDefault();
+        //         // these IDs from the previous steps
+        //         emailjs.sendForm('contact_service', 'contact_form', this)
+        //             .then(() => {
+        //                 console.log('SUCCESS!');
+        //             }, (error) => {
+        //                 console.log('FAILED...', error);
+        //             });
+        //     });
+        // }
+        
+        window.onload = function() {
+            $("#contact-form").on("submit", function (event) {
+                event.preventDefault();
+                
+                // formData 넣어주고
+                const formData = new FormData(this);
+                
+                // 파라미터 조건들 넣어줘야함
+                // ID나 Key들은 각자 다르기때문에 EmailJS에서 확인하고 기입
+                formData.append('service_id', 'service_berj6c8');
+                formData.append('template_id', 'template_cv92qpu');
+                formData.append('user_id', 'nmWuFqNcSu-nC5H9Z');
+
+                $.ajax("https://api.emailjs.com/api/v1.0/email/send-form", {
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                })
+                .done(function () {
+                    alert('성공');
+                })
+                .fail(function (error) {
+                    alert("Oops... " + JSON.stringify(error));
+                });
+            });
+        }
+    </script>   
+</html>
