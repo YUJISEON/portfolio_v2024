@@ -884,7 +884,7 @@ main.sub {
 
 .project-box .project-item .pdetail p {
     margin-bottom: 20px;
-    height: 0;
+    /* height: 0; */
     overflow: hidden;
     transition:all .4s ease; -webkit-transition:all .4s ease; -ms-transition:all .4s ease; -moz-transition:all .4s ease; -o-transition:all .4s ease;
 }
@@ -897,6 +897,12 @@ main.sub {
     pointer-events: initial;
 }
 
-.project-box > li.on .project-item p {
+/* .project-box > li.on .project-item p {
     height:auto;
+} */
+
+
+.project-box .project-item.project-head {
+    text-align: center;
+    padding: 1vw 0;
 }

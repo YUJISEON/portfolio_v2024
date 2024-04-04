@@ -10,11 +10,11 @@ pItems.forEach((item, index) => {
     const newsContent = item.querySelector(".pdetail p");    
     const newsContentHeight = gsap.getProperty(newsContent, "height");
     
-    if (index === 0) {
-        gsap.set(newsContent, { height: "auto" });
-    } else {
-        gsap.set(newsContent, { height: 0 });
-    }
+    // if (index === 0) {
+    //     gsap.set(newsContent, { height: "auto" });
+    // } else {
+    //     gsap.set(newsContent, { height: 0 });
+    // }
     
     
     gsap.to(item, {
@@ -32,26 +32,26 @@ pItems.forEach((item, index) => {
             onEnter: () => { 
                 item.classList.add("on");
                 gsap.to(item, { duration: 0.2, opacity: 1, ease: "power2.easeOut" });
-                gsap.to(newsContent, { duration: 0.2, height: "auto", ease: "power2.easeOut" });
+                //gsap.to(newsContent, { duration: 0.2, height: "auto", ease: "power2.easeOut" });
             },
             onLeave: () => {
                 if (index !== pItems.length - 1) {
                     item.classList.remove("on");
                     gsap.to(item, { duration: 0.2, opacity: 0.2, ease: "power2.easeOut" });
-                    gsap.to(newsContent, { duration: 0.2, height: 0, ease: "power2.easeOut" });
+                    //gsap.to(newsContent, { duration: 0.2, height: 0, ease: "power2.easeOut" });
                     
                 }
             },
             onEnterBack: () => {
                 item.classList.add("on");
                 gsap.to(item, { duration: 0.2, opacity: 1, ease: "power2.easeOut" });
-                gsap.to(newsContent, { duration: 0.2, height: "auto", ease: "power2.easeOut" });
+                //gsap.to(newsContent, { duration: 0.2, height: "auto", ease: "power2.easeOut" });
             },
             onLeaveBack: () => {
                 if (index !== 0 ) {
                     item.classList.remove("on");
                     gsap.to(item, { duration: 0.2, opacity: 0.2, ease: "power2.easeOut" });
-                    gsap.to(newsContent, { duration: 0.2, height: 0, ease: "power2.easeOut" });
+                    //gsap.to(newsContent, { duration: 0.2, height: 0, ease: "power2.easeOut" });
                 }
             },
             //markers: true,
