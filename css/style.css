@@ -22,6 +22,20 @@
     font-display: swap
 }
 
+@font-face {
+    font-family: 'mona-sansextrabold_wide';
+    src: url(/fonts/Mona-Sans-BoldWide.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mona-sanslight_wide';
+    src: url(/fonts/Mona-Sans-LightWide.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
     margin: 0;
     padding: 0;
@@ -73,12 +87,17 @@ html {
     -webkit-text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
     user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+     */
 }
 
 html.load {
@@ -103,13 +122,13 @@ body {
 }
 
 body.sub {
-    background-color: #000;
+    background-color: rgb(12, 12, 12);
 }
 
 .bg {
     width: 100%;
     height: 0;
-    background-color: #000; 
+    background-color: rgb(12, 12, 12); 
     color: #fff;
     position: fixed;
     top: 0;
@@ -778,8 +797,106 @@ body.sub main > section > .section-body .inner .con-area {
     width: 100%;
     height: 100%;
 }
+main.sub {
+    padding: 110px 0 50px;
+}
 
 
 /*******************************/
-/****     main - about     *****/
+/****     sub - about     *****/
 /*******************************/
+
+
+
+/*******************************/
+/****     sub - project     *****/
+/*******************************/
+
+
+.marquee-box {
+    white-space: nowrap;
+    margin-left: calc(50% - 50vw)!important;
+    margin-right: calc(50% - 50vw)!important;
+    max-width: 1000%!important;
+    width: 100vw!important;
+    font-family: 'mona-sanslight_wide';
+    margin: 50px 0 20px;
+}
+
+.marquee-box .marquee-text  {
+    font-weight: 300;
+    display: inline-block;
+    color:#fff;
+    font-size: calc(1rem + 4.15vw);
+	line-height: calc(1rem + 4.5vw);
+}
+
+
+.marquee-box .marquee-text b {
+    font-family: 'mona-sansextrabold_wide';
+} 
+
+
+.project-box > li {
+    position: relative;
+    box-sizing: border-box;
+
+    padding-left: 80px;
+    padding-right: 80px;
+    opacity: 0.2;
+    /* pointer-events: none; */
+
+}
+
+.project-box .project-item {
+    padding: 5vw 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-box .project-item, 
+.button-wrap > a {
+    width: 100%;
+    position: relative;
+    /* color: #444; */
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.project-box .project-item .w-small {
+    width: 15%;
+}
+
+.project-box .project-item .pdetail {
+    width: 55%;
+}
+
+.project-box .project-item .pdetail  h4 {
+    color: #fff;
+    font-size: calc(1rem + 1vw);
+    line-height: calc(1rem + 1.6vw);
+    margin-bottom: 20px;
+}
+
+.project-box .project-item .pdetail h4 strong {
+    font-weight: 800;
+}
+
+.project-box .project-item .pdetail p {
+    margin-bottom: 20px;
+    height: 0;
+    overflow: hidden;
+    transition:all .4s ease; -webkit-transition:all .4s ease; -ms-transition:all .4s ease; -moz-transition:all .4s ease; -o-transition:all .4s ease;
+}
+
+.project-box .project-item .pdetail .button-wrap a {
+    color: #fff;
+}
+
+.project-box > li.on {
+    pointer-events: initial;
+}
+
+.project-box > li.on .project-item p {
+    height:auto;
+}
