@@ -1,15 +1,3 @@
-
-// const img = gsap.utils.toArray('img');
-// const loader = document.querySelector('.loader-text');
-
-// const updateProgress = (instance)=>{
-//     loader.textContent = `${Math.round(instance.progressedCount * 100 / img.length)}%`
-// }
-
-// imagesLoaded(img)
-// .on('progress',updateProgress)
-
-
 const preloader = document.querySelector('.preloader');
 const txtV1 = document.querySelectorAll('.txt-v1');
 const txtV2 = document.querySelectorAll('.txt-v2');
@@ -352,6 +340,7 @@ function projectAni() {
     // })
 
     const projectWrap = document.querySelector(".project-wrap");
+    const lightBox = projectWrap.querySelector(".light-box");	
     const listRotatorPin = projectWrap.querySelector(".list-wrap");
     const listRotator = projectWrap.querySelector(".list-box");			
     const listItems = projectWrap.querySelectorAll('li');
@@ -362,7 +351,7 @@ function projectAni() {
         const rotationAngle = index * angleIncrement;
         const fontSize = gsap.getProperty(item, "fontSize");
         const lineHeight = gsap.getProperty(item, "lineHeight");
-        const translateZ = (parseFloat(fontSize) + parseFloat(lineHeight)) * 1.8;
+        const translateZ = (parseFloat(fontSize) + parseFloat(lineHeight)) * 4;
         
         gsap.set(item, {
             rotationX: -rotationAngle,
@@ -370,14 +359,24 @@ function projectAni() {
             transform: `rotateX(${-rotationAngle}deg) translateZ(${translateZ}px)`,
             zIndex: totalItems - index, 
         });
-    });					 
+    });		
+    
+    function setlistRotatorProperties() {		
+        gsap.set(projectWrap, { height: window.innerHeight*2.5});
+        gsap.set(lightBox, { height: window.innerHeight*3.5});
+    }
+    
+    gsap.set(listRotator, { rotationX:-90});
+    
+    setlistRotatorProperties();
     
     gsap.to(listRotatorPin, {
         scrollTrigger: {
             trigger: listRotatorPin,
+            id: "111",
             start: function() {
                 const startPin = 0;
-                return "top +=" + startPin;
+				return "top +=" + startPin;
             },
             end: function() {
                 const endPin = window.innerHeight * 6;
@@ -393,15 +392,17 @@ function projectAni() {
     gsap.to(listRotator, {
         scrollTrigger: {
             trigger: projectWrap,
+            id: "222",
             start: function() {
                 const startPin = (window.innerHeight) * 0.8;
                 return "top +=" + startPin;
             },
             end: function() {
-                const endPin = window.innerHeight * 5.5;
+                const endPin = window.innerHeight * 3.5;
                 return "+=" + endPin;
             },
             scrub: true,
+            //markers: true,
         },
         rotationX:285
     });
@@ -446,7 +447,7 @@ function connectAni() {
 
     ScrollTrigger.create({
         trigger: '.main-connect .section-body',
-        start: 'top top',
+        start: '-10% top',
         toggleClass : {targets: ".line", className: "on"},
         scrub: 1,
         //markers: true,

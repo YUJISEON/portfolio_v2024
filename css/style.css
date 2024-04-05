@@ -93,20 +93,14 @@ html {
     -ms-user-select: none;
     width: 100%;
     height: 100%;
-    /* overflow: hidden;
+}
+
+html.loading {
+    overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;
-     */
-}
-
-html.load {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: auto;
-    height: auto;
-    overflow: auto;
+    overflow: hidden;
 }
 
 body {
@@ -156,7 +150,7 @@ body.sub {
     top: 12.5vh;
     left: 5rem;
     border-radius: 3rem;
-    border: 3px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     transform: scale(2);
     transition: all .5s;
 }
@@ -298,12 +292,12 @@ body.sub {
 }
 
 #header .header-body .logo {
-    height: 100%;
     position: absolute;
     left: 40px;
     top: 50%;
     margin-top: -35px;
     font-size: 4rem;
+    line-height: 6rem;
     letter-spacing: -0.15rem;
 }
 
@@ -585,7 +579,7 @@ body.sub {
 
 .light-box {
     position: absolute;
-    top:-100vh;
+    top: -105vh;
     left: 0;
     width: 100%;
     height: 400vh;
@@ -630,8 +624,8 @@ body.sub {
     position: absolute;
     width: 100%;
     text-align: center;
-    font-size: calc(1rem + 2vh);
-    line-height: calc(1rem + 3.5vw);
+    font-size: calc(1rem + 3.5vh);
+    line-height: calc(1rem + 3.5vh);
     font-family: 'mona-sansextrabold_wide';
     font-weight: 300;
     top: 50%;
@@ -807,6 +801,81 @@ main.sub {
 /*******************************/
 
 
+.sub.about main.sub {
+    padding-bottom: 0;
+}
+
+.sub.about .inner .con-area {
+    padding: 50px 0;
+}
+
+.sub.about .tit-wrap h2 {
+    display: inline-block;
+    font-size: 5.0rem;
+    line-height: 55px;
+    font-weight: 700;
+    padding: 20px 0;
+}
+.sub.about .tit-wrap h2 b {
+    font-weight: 400;
+    color: #5cd2b9;
+}
+
+.sub.about h3 {
+    display: inline-block;
+    font-size: 3.0rem;
+    line-height: 35px;
+    font-weight: 700;
+    padding: 10px 0;
+}
+
+.sub.about .desc,
+.sub.about ul li {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.056rem;
+}
+
+.sub.about .skills ul li {
+    display: inline-block;
+}
+
+
+.sub.about .skills ul li + li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.sub.about .skills ul li + li::before {
+    content: '';
+    display: block;
+    clear: both;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #5cd2b9;
+    position: absolute;
+    top: 50%;
+    left: -17px;
+    margin-top: -2.5px;
+}
+
+.sub.about ul li {
+    padding: 10px 0;
+}
+
+.sub.about ul li b {
+    display: inline-block;
+    width: 100px;
+    color: #5cd2b9;
+}
+
+
+.gray {
+    background-color: #222;
+}
+
+
 
 /*******************************/
 /****     sub - project     *****/
@@ -905,4 +974,67 @@ main.sub {
 .project-box .project-item.project-head {
     text-align: center;
     padding: 1vw 0;
+}
+
+
+
+/*******************************/
+/****     sub - contact     *****/
+/*******************************/
+
+.sub.connect .con-wrap {
+    height: calc(100vh - 160px);
+}
+
+.connect-box {
+    width: 50vw;
+    padding: 13vh;
+    border-radius: 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.connect-box p + p {
+    margin-top: 20px;
+}
+.connect-box input, 
+.connect-box textarea {
+    font-family: 'mona-sanslight_wide';
+    width: 100%;
+    height: 4rem;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.072rem;
+    color: #fff;
+    background-color: #323030;
+    border-color: #585555;
+    padding: 10px;
+}
+
+.connect-box input:focus-visible
+.connect-box textarea:focus-visible {
+    background-color: #323030;
+    border-color: #585555;
+    outline: none;
+}
+
+.connect-box textarea {
+    resize: none;
+    height: 100px;
+}
+
+.connect-box button {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 4rem;
+    font-size: 1.3rem;
+    background-color: #323030;
+    color: #fff;
+    border: none;
+    font-family: 'mona-sanslight_wide';
+    cursor: pointer;
+}
+
+.connect-box button:hover {
+    color: red
 }
