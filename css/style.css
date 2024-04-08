@@ -107,7 +107,7 @@ body {
     height: 100%;
     width: 100%;
     touch-action: none;
-    /* background-color: #000;  */
+    background-color: black; 
     color: #fff;
     font-family: "PP Telegraf";
     letter-spacing: -0.07rem;
@@ -561,6 +561,14 @@ body.sub {
     height: 200vh;
 }
 
+.main-project a {
+    display: block;
+    color: #000;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
 .main-project .section-body {
     background-color: #fff;
     clip-path: inset(6% 18% 0% 18%);
@@ -587,6 +595,8 @@ body.sub {
     justify-content: center;
     pointer-events: none;
 }
+
+
 
 .list-wrap {
     position: relative;

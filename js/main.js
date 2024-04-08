@@ -1,66 +1,9 @@
+
+const hm = document.querySelector('html');
 const preloader = document.querySelector('.preloader');
-const txtV1 = document.querySelectorAll('.txt-v1');
-const txtV2 = document.querySelectorAll('.txt-v2');
 const bg = document.querySelector('.bg');
-
-
+let loaderText, txtV1, txtV2, preloaderTxt;
 const master = gsap.timeline();
-
-const preloaderTxt = gsap.timeline()
-.to(txtV1, {
-    y: "-100%",
-    stagger: .025,
-    duration: 1,
-    delay: .25,
-    ease: "Expo.easeOut"
-})
-.to(txtV2, {
-    y: "0",
-    stagger: .025,
-    duration: 1,
-    delay: .15,
-    ease: "Expo.easeOut"
-}, '<')
-.to(".preloader p span", {
-    y: "-100%",
-    delay: .3,
-    duration: 1,
-    ease: "Expo.easeOut"
-}, '<')
-.to(".txt-j", {
-    x: "37.5rem",
-    duration: .67,
-    ease: "Expo.easeIn"
-})
-.to(".txt-r", {
-    x: "-10.5rem",
-    duration: .67,
-    ease: "Expo.easeIn"
-}, '<')
-.to(".txt-last", {
-    x: "-26.5rem",
-    duration: .67,
-    ease: "Expo.easeIn"
-}, '<')
-.to(bg, {
-    height: '100%',
-    duration: 1.5,
-    ease: "Expo.easeOut",
-    onComplete: ()=>{     
-        const html = document.querySelector('html');
-        const body = document.querySelector('body');  
-        html.classList.add("load");        
-        body.style.backgroundColor = "black";
-        preloader.style.display = "none"; 
-        bg.style.display = "none"; 
-    }
-}, '-=.1')
-.to(preloader, {
-    opacity: 0,
-    duration: 0    
-}, '+=.5')
-
-
 
 const headerBody = document.querySelector('.header-body');
 const txtHidden = document.querySelectorAll('.txt-hidden span');
@@ -69,11 +12,11 @@ const txtDesc = document.querySelectorAll('.txt-description span');
 const circleBox1 = document.querySelectorAll('.arrow-wrap.type1 .circle-box circle');
 
 const visualTxt = gsap.timeline()
-.from(headerBody, {
-    y: "-100%",
-    duration: 1.3,
-    ease: "Power3.easeOut",
-})
+// .from(heaedrBody, {
+//     y: "-100%",
+//     duration: 1.3,
+//     ease: "Power3.easeOut",
+// })
 .to(txtHidden, {
     y: "-101%",
     stagger: .025,
@@ -103,7 +46,9 @@ visualTxt.eventCallback('onComplete',()=>{
     gsap.set('.no-scroll', {display:'none'})
 })
 
-
+visualTxt.eventCallback('onStart',()=>{
+    hm.classList.remove('loading');
+})
 
 function arrowAniType1() {
     const arrowWrap = document.querySelector('.arrow-wrap.type1');
@@ -455,9 +400,152 @@ function connectAni() {
 
 }
 
-master
-.add(preloaderTxt)
-.add(visualTxt, "-=1")
+function preloaderInit() {
+    
+    hm.classList.add('loading');
+
+    let tag = '';
+
+    tag  = `<div class="preloader-bg"></div>
+    <div class="preloader-txt-wrap le">
+        <span class="txt-v1">J</span>
+        <span class="txt-v1">I</span>
+        <span class="txt-v1">S</span>
+        <span class="txt-v1">E</span>
+        <span class="txt-v1">O</span>
+        <span class="txt-v1">N</span>
+    </div>
+    <div class="preloader-txt-wrap ri">
+        <span class="txt-v1">R</span>
+        <span class="txt-v1">Y</span>
+        <span class="txt-v1">U</span>
+        <span class="txt-v1">.</span>
+    </div>
+    <div class="preloader-txt-wrap le">
+        <span class="txt-v2 txt-j">J</span>
+        <span class="hidden-txt">I</span>
+        <span class="hidden-txt">S</span>
+        <span class="hidden-txt">E</span>
+        <span class="hidden-txt">O</span>
+        <span class="hidden-txt">N</span>
+    </div>
+    <div class="preloader-txt-wrap ri">
+        <span class="txt-v2 txt-r">R</span>
+        <span class="hidden-txt">Y</span>
+        <span class="hidden-txt">U</span>
+        <span class="txt-v2 txt-last">.</span>
+    </div>
+    <p><span class="loader-text">100%</span></p>`
+    
+    preloader.innerHTML = tag;
+
+    loaderText = document.querySelector('.loader-text');
+    txtV1 = document.querySelectorAll('.txt-v1');
+    txtV2 = document.querySelectorAll('.txt-v2');
+    
+    preloaderTxt = gsap.timeline()
+    .to(txtV1, {
+        y: "-100%",
+        stagger: .025,
+        duration: 1,
+        delay: .25,
+        ease: "Expo.easeOut"
+    })
+    .to(txtV2, {
+        y: "0",
+        stagger: .025,
+        duration: 1,
+        delay: .15,
+        ease: "Expo.easeOut"
+    }, '<')
+    .to(".txt-j", {
+        x: "37.5rem",
+        duration: .67,
+        ease: "Expo.easeIn"
+    })
+    .to(".txt-r", {
+        x: "-10.5rem",
+        duration: .67,
+        ease: "Expo.easeIn"
+    }, '<')
+    .to(".txt-last", {
+        x: "-26.5rem",
+        duration: .67,
+        ease: "Expo.easeIn"
+    }, '<')
+    .to(bg, {
+        height: '100%',
+        duration: 1.5,
+        ease: "Expo.easeOut",
+        onComplete: ()=>{  
+            const html = document.querySelector('html');
+            const body = document.querySelector('body');  
+            html.classList.add("load");        
+            body.style.backgroundColor = "black";
+            preloader.style.display = "none"; 
+            bg.style.display = "none"; 
+        }
+    })
+    .to(preloader, {
+        opacity: 0,
+        duration: 0    
+    }, '+=.5')
+
+    function init () {
+        loaderText.textContent = `${Math.round(preloaderTxt.progress() * 100)}%`
+    }
+
+    function end () {
+        gsap.to(".preloader p span", {
+            y: "-100%",
+            delay: .3,
+            duration: 1,
+            ease: "Expo.easeOut"
+        }, '<')
+    }
+
+    preloaderTxt.eventCallback("onUpdate",  init);
+    preloaderTxt.eventCallback("onComplete",  end);
+}
+
+function setCookie(name, value) {
+    document.cookie = name + '=' + value + '; path=/';
+}
+
+function getCookie(name) {
+    var nameEQ = name + '=';
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == ' ') cookie = cookie.substring(1, cookie.length);
+        if (cookie.indexOf(nameEQ) == 0) return cookie.substring(nameEQ.length, cookie.length);
+    }
+    return null;
+}
+
+let loadingBar = getCookie('loadingBar');
+let isHardRefresh = performance.navigation.type === performance.navigation.TYPE_RELOAD;
+let delay = "+=.2";
+
+if ( !loadingBar || isHardRefresh ) {
+    setCookie('loadingBar', true);
+    delay = "+=4";
+
+    master
+    .add(preloaderInit)
+    .add(preloaderTxt)
+    .add(visualTxt, delay);
+} else {    
+    const html = document.querySelector('html');
+    const body = document.querySelector('body');  
+    html.classList.add("load");        
+    body.style.backgroundColor = "black";
+    preloader.style.display = "none"; 
+    bg.style.display = "none"; 
+
+    preloader.innerHTML = '';
+    master.add(visualTxt, delay);
+}
 
 arrowAniType1();
 arrowAniType2();

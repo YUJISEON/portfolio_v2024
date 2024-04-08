@@ -11,22 +11,7 @@
 </head>
 <body class="main">
     <div class="no-scroll"></div>
-    <header id="header">
-        <div class="header-body">
-            <div class="inner flex-box align-items-center justify-content-center">
-                <h1 class="logo">
-                    <a href="/" class="a-link">JISEON R.</a>
-                </h1>
-                <nav class="gnb">
-                    <ul class="gnb-items">
-                        <li><a href="/about/index.html" class="a-link">ABOUT</a></li>
-                        <li><a href="/project/index.html" class="a-link">PROJECT</a></li>
-                        <li><a href="/connect/index.html" class="a-link">CONNECT</a></li>
-                    </ul>
-                </nav>
-            </div>    
-        </div>
-    </header>
+    <div role="navbar" data-include="/include/navbar_inc.html" ></div>
     <div class="smooth-wrapper">
         <div id="smooth-content">
             <main id="main">
@@ -167,104 +152,40 @@
                     </div>
                 </section>
                 <section id="mainProject" class="main-project">
-                    <div class="section-body light-body"> <!-- /project/index.html/ -->
+                    <div class="section-body light-body"> 
                         <div class="inner flex-box align-items-center justify-content-center">
                             <div class="con-area">
-                                <!-- <div class="tit-wrap flex-box justify-content-between align-items-center">
-                                    <div class="arrow-wrap type2">
-                                        <a href="">
-                                            <div class="circle-box layer" data-arrow="4">
-                                                <svg><circle></circle></svg>
-                                            </div>
-                                            <div class="circle-box circle-inner layer" data-arrow="3">
-                                                <svg><circle></circle></svg>
-                                            </div>
-                                            <div class="circle-box circle-txt layer" data-arrow="3">
-                                                <div class="txt-wrap flex-box align-items-center justify-content-center">
-                                                    <div class="txt-inner">
-                                                        <p>View All</p><p>Projects</p>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="arrow-box arrow-inner layer" data-arrow="5">
-                                                <svg width="100%" height="100%" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.2338 12.28L14.7538 20.8V0.239998H11.3538V20.76L2.87375 12.28L0.59375 14.56L13.0738 27L25.5138 14.56L23.2338 12.28Z" fill="white"></path></svg>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="project-description section-description">
-                                        <p>
-                                            다음은 이를 보여주는 최근에 작업했던 프로젝트들입니다. <br>
-                                            스크립트 및 라이브러리(달력, 차트)가 활용된 솔루션 프로젝트, <br>
-                                            반응형으로 제작된 일반 홈페이지 프로젝트 등 많은 작업물들을 확인 가능합니다. 
-                                        </p>
-                                    </div>
-                                </div> -->
                                 <div class="project-wrap flex-box justify-content-center align-items-center">
-                                    <div class="light-box">
-                                        <div class="list-wrap">
-                                            <ul class="list-box">
-                                                <li>마이다스부동산중개법인 <strong>부동산 홈페이지</strong></li>
-                                                <li>민에이앤지 <strong>에너지절약 관리 프로그램</strong></li>
-                                                <li>이가그룹 <strong>설비예약 프로그램</strong></li>
-                                                <li>KSCI <strong>한국 고객만족지수 홈페이지</strong></li>
-                                                <li>상공제작소 <strong>데모 홈페이지</strong></li>
-                                                <li>더블뉴컴퍼니 <strong>번역 프로젝트 관리 프로그램</strong></li>
-                                                <li>법무법인정의 <strong>사내 인트라넷 시스템</strong></li>
-                                                <li>미주소프트웨어 <strong>브랜드 홈페이지</strong></li>
-                                                <li>BGF네트웍스 <strong>CUAD 랜딩페이지</strong></li>
-                                                <li>코어스톤 <strong>IT 기업 홈페이지지</strong></li>
-                                                <li>애드몽스 라이브커머스 <strong>마케팅 대행사 홈페이지</strong></li>
-                                                <li>골든듀 <strong>캐럿 현황 시스템</strong></li>
-                                                <li>HR맨파워 <strong>맞춤 헤드헌팅 홈페이지</strong></li>
-                                                <li>하람 <strong>공모전 매칭 홈페이지</strong></li>
-                                                <li>크레모네제 <strong>브랜드 홈페이지</strong></li>
-                                                <li>이니텍 <strong>이니허브 랜딩페이지</strong></li>
-                                                <li>이니텍 <strong>이니허브 관리시스템</strong></li>
-                                                <li>한미약품 <strong>채용안내 랜딩페이지</strong></li>
-                                                <li>OK금융그룹 <strong>이모만세 앱소개 홈페이지</strong></li>
-                                                <li>미래인재경찰학원 <strong>인터넷 강의 학원홈페이지</strong></li>
-                                                <li>위성활용연구센터 <strong>연구실 홈페이지지</strong></li>
-                                                <li>셀피아의원 <strong>병.의원 홈페이지</strong></li>
-                                            </ul>
+                                    <a href="/project/index.html" class="a-link" target="_blank">
+                                        <div class="light-box">
+                                            <div class="list-wrap">                                            
+                                                <ul class="list-box">
+                                                    <li>마이다스부동산중개법인 <strong>부동산 홈페이지</strong></li>
+                                                    <li>민에이앤지 <strong>에너지절약 관리 프로그램</strong></li>
+                                                    <li>이가그룹 <strong>설비예약 프로그램</strong></li>
+                                                    <li>KSCI <strong>한국 고객만족지수 홈페이지</strong></li>
+                                                    <li>상공제작소 <strong>데모 홈페이지</strong></li>
+                                                    <li>더블뉴컴퍼니 <strong>번역 프로젝트 관리 프로그램</strong></li>
+                                                    <li>법무법인정의 <strong>사내 인트라넷 시스템</strong></li>
+                                                    <li>미주소프트웨어 <strong>브랜드 홈페이지</strong></li>
+                                                    <li>BGF네트웍스 <strong>CUAD 랜딩페이지</strong></li>
+                                                    <li>코어스톤 <strong>IT 기업 홈페이지지</strong></li>
+                                                    <li>애드몽스 라이브커머스 <strong>마케팅 대행사 홈페이지</strong></li>
+                                                    <li>골든듀 <strong>캐럿 현황 시스템</strong></li>
+                                                    <li>HR맨파워 <strong>맞춤 헤드헌팅 홈페이지</strong></li>
+                                                    <li>하람 <strong>공모전 매칭 홈페이지</strong></li>
+                                                    <li>크레모네제 <strong>브랜드 홈페이지</strong></li>
+                                                    <li>이니텍 <strong>이니허브 랜딩페이지</strong></li>
+                                                    <li>이니텍 <strong>이니허브 관리시스템</strong></li>
+                                                    <li>한미약품 <strong>채용안내 랜딩페이지</strong></li>
+                                                    <li>OK금융그룹 <strong>이모만세 앱소개 홈페이지</strong></li>
+                                                    <li>미래인재경찰학원 <strong>인터넷 강의 학원홈페이지</strong></li>
+                                                    <li>위성활용연구센터 <strong>연구실 홈페이지지</strong></li>
+                                                    <li>셀피아의원 <strong>병.의원 홈페이지</strong></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- <div class="project-box project-box1">
-                                        <a href="https://yeyakegagroup.com/member/login.php" class="a-link" target="_blank">
-                                            <div class="img-wrap">
-                                                <div class="img"></div>
-                                                <div class="img-desc">                                                    
-                                                    <p>이가그룹/설비예약 프로그램</p>
-                                                    <p>[PC] 퍼블리싱 100%</p>
-                                                    <p>2023-11</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>                                                                     
-                                    <div class="project-box project-box2">
-                                        <a href="https://indoubleknew.company/admin/" class="a-link" target="_blank">
-                                            <div class="img-wrap">
-                                                <div class="img"></div>
-                                                <div class="img-desc">                                                    
-                                                    <p>더블뉴컴퍼니/번역 프로젝트 관리 프로그램</p>
-                                                    <p>[PC] 퍼블리싱 100%</p>
-                                                    <p>2023-09</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="project-box project-box3">
-                                        <a href="https://mongslive.com/" class="a-link" target="_blank">
-                                            <div class="img-wrap">
-                                                <div class="img"></div>
-                                                <div class="img-desc">                                                    
-                                                    <p>애드몽스/마케팅 대행사 홈페이지</p>
-                                                    <p>[PC, 반응형] 반응형 퍼블리싱 100%</p>
-                                                    <p>2023-07</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>    -->
+                                    </a>
                                 </div>
                                 <div style="height: 50vh;"></div>
                             </div>
@@ -276,7 +197,6 @@
                         <div class="inner flex-box align-items-center justify-content-center">
                             <div class="con-area">
                                 <div class="connect-wrap flex-box flex-column justify-content-center align-items-center">
-                                    <!-- <div class="ani-box"></div> -->
                                     <div class="connect-description section-description none">
                                         <P>GOT A PROJECT IN MIND?</P>
                                         <h2>LET'S connect</h2>
@@ -312,7 +232,7 @@
     </div>
     <div id="cursor"></div>    
     <div class="preloader">
-        <div class="preloader-bg"></div>
+        <!-- <div class="preloader-bg"></div>
         <div class="preloader-txt-wrap le">
             <span class="txt-v1">J</span>
             <span class="txt-v1">I</span>
@@ -341,7 +261,7 @@
             <span class="hidden-txt">U</span>
             <span class="txt-v2 txt-last">.</span>
         </div>
-        <p><span class="loader-text">100%</span></p>
+        <p><span class="loader-text">100%</span></p> -->
     </div>
     <div class="bg"></div>          
     <div class="line"></div>
@@ -349,6 +269,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- gsap Business license --> <script type="module" src="/js/gsap-business/src/ScrollSmoother.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script type="module" src="/js/common.js"></script>
     <script type="module" src="/js/main.js"></script>
 </html>

@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", function() {
+    includeLayout();
+});
+
+function includeLayout() {
+    var includeAreas = document.querySelectorAll('[data-include]');
+    includeAreas.forEach(function(includeArea) {
+        var url = includeArea.dataset.include;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                includeArea.innerHTML = html;
+                includeArea.removeAttribute("data-include");
+            })
+            .catch(error => console.error('Error fetching include:', error));
+    });
+}
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Observer);
 
 const smoother = ScrollSmoother.create({
