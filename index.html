@@ -6,12 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>류지선 포트폴리오</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">        
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">        
 </head>
 <body class="main">
     <div class="no-scroll"></div>
-    <div role="navbar" data-include="/include/navbar_inc.html" ></div>
+    <header id="header">
+        <div class="header-body">
+            <div class="inner flex-box align-items-center justify-content-center">
+                <h1 class="logo">
+                    <a href="/" class="a-link">JISEON R.</a>
+                </h1>
+                <nav class="gnb">
+                    <ul class="gnb-items">
+                        <li><a href="about/index.html" class="a-link">ABOUT</a></li>
+                        <li><a href="project/index.html" class="a-link">PROJECT</a></li>
+                        <li><a href="connect/index.html" class="a-link">CONNECT</a></li>
+                    </ul>
+                </nav>
+            </div>    
+        </div>
+    </header>
     <div class="smooth-wrapper">
         <div id="smooth-content">
             <main id="main">
@@ -112,7 +127,7 @@
                             <div class="con-area">
                                 <div class="con-wrap flex-box align-items-center justify-content-center">
                                     <div class="img-box flex-box align-items-center justify-content-center">
-                                        <img src="/img/me.jpg" alt="">
+                                        <img src="img/me.jpg" alt="">
                                     </div>
                                     <div class="tit-wrap">
                                         <div class="about-description section-description">
@@ -125,7 +140,7 @@
                                             </p>
                                         </div>
                                         <div class="arrow-wrap type2">
-                                            <a href="/about/index.html">
+                                            <a href="about/index.html">
                                                 <div class="circle-box layer" data-arrow="4">
                                                     <svg><circle></circle></svg>
                                                 </div>
@@ -156,7 +171,7 @@
                         <div class="inner flex-box align-items-center justify-content-center">
                             <div class="con-area">
                                 <div class="project-wrap flex-box justify-content-center align-items-center">
-                                    <a href="/project/index.html" class="a-link" target="_blank">
+                                    <a href="project/index.html" class="a-link" target="_blank">
                                         <div class="light-box">
                                             <div class="list-wrap">                                            
                                                 <ul class="list-box">
@@ -202,7 +217,7 @@
                                         <h2>LET'S connect</h2>
                                     </div>
                                     <div class="arrow-wrap type2">
-                                        <a href="/connect/index.html">
+                                        <a href="connect/index.html">
                                             <div class="circle-box layer" data-arrow="4">
                                                 <svg><circle></circle></svg>
                                             </div>
@@ -268,8 +283,8 @@
 </body>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- gsap Business license --> <script type="module" src="/js/gsap-business/src/ScrollSmoother.js"></script>
+    <!-- gsap Business license --> <script type="module" src="js/gsap-business/src/ScrollSmoother.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script type="module" src="/js/common.js"></script>
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="js/common.js"></script>
+    <script type="module" src="js/main.js"></script>
 </html>

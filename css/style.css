@@ -1,6 +1,6 @@
 @font-face {
     font-family: "PP Telegraf";
-    src: url(/fonts/pptelegraf-regular.woff) format("woff");
+    src: url(../fonts/pptelegraf-regular.woff) format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "PP Telegraf";
-    src: url(/fonts/pptelegraf-ultralight.woff) format("woff");
+    src: url(../fonts/pptelegraf-ultralight.woff) format("woff");
     font-weight: 200;
     font-style: normal;
     font-display: swap
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "PP Telegraf";
-    src: url(/fonts/pptelegraf-ultrabold.woff) format("woff");
+    src: url(../fonts/pptelegraf-ultrabold.woff) format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap
@@ -24,14 +24,14 @@
 
 @font-face {
     font-family: 'mona-sansextrabold_wide';
-    src: url(/fonts/Mona-Sans-BoldWide.woff) format('woff');
+    src: url(../fonts/Mona-Sans-BoldWide.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'mona-sanslight_wide';
-    src: url(/fonts/Mona-Sans-LightWide.woff) format('woff');
+    src: url(../fonts/Mona-Sans-LightWide.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 }
