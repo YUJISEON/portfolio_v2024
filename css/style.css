@@ -819,6 +819,39 @@ main.sub {
     padding: 50px 0;
 }
 
+
+.sub.about .inner .con-area.le {
+    width: 40%
+}
+
+.sub.about .inner .con-area.ri {
+    width: 60%
+}
+
+.sub.about .img-box {
+    width: 100%;
+    padding: 50px;
+    position: relative;
+}
+
+.sub.about .img-box::before {
+    content: '';
+    display: block;
+    clear: both;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.sub.about .img-box img {
+    display: block;
+    width: 100%;
+}
+
 .sub.about .tit-wrap h2 {
     display: inline-block;
     font-size: 5.0rem;
@@ -842,8 +875,13 @@ main.sub {
 .sub.about .desc,
 .sub.about ul li {
     font-size: 1.4rem;
-    line-height: 1.8rem;
+    line-height: 2rem;
     letter-spacing: -0.056rem;
+}
+
+.experience-box > li {
+    display: inline-block;
+    width: 50%;
 }
 
 .sub.about .skills ul li {
